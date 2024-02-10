@@ -1,0 +1,100 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body,head{
+    inline-size: 100%;
+    block-size: 100%;
+
+}
+nav{
+   
+    
+    inline-size: 100%;
+    display: flex;
+    flex-direction: column;
+    
+}
+.up{
+    padding: 20px 100px;
+    font-weight: 600;
+  
+    display: flex;
+    background-color: rgba(0,0,0,0.2);
+    justify-content: space-around;
+
+}
+ul{
+    display: flex;
+    cursor: pointer;
+    gap: 10px;
+}
+li{
+    list-style: none;
+
+}
+.down{
+    inline-size: 100%;
+    
+}
+.buttons button{
+    block-size: 30px;
+    inline-size: 90px;
+    color: blue;
+}
+.buttons button:hover{
+    background-color: rgb(44, 44, 194);
+    color: white;
+    cursor: pointer;
+}
+main{
+    inline-size: 100%;
+    block-size: 100vh;
+    background-color: rgba(0,0,0,0.2);
+}
+.hero{
+    padding-block-start: 80px;
+    inline-size: 100%;
+    block-size: 70vh;
+    display: flex;
+}
+.left h1{
+    font-size: 3vw;
+    font-weight: 540;
+    margin-block-end: 50px;
+}
+.left p{
+    font-size: 1vw;
+    margin-block-end: 50px;
+}
+.hero .left{
+    inline-size: 50%;
+    border: 1px solid black;
+    padding-inline-start: 100px;
+
+
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.hero .right{
+    inline-size: 50%;
+}
+.right img{
+    block-size: 100%;
+    inline-size: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+input{
+    inline-size: 15vw;
+    block-size: 3vw;
+}
+.left button{
+    block-size: 2vw;
+    inline-size: 10vw;
+    cursor: pointer;
+}

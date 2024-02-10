@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Table Data</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Your existing CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            inline-size: 200px;
+            padding: 8px;
+            margin-inline-end: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #00bfff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #21825B;
+        }
+
+        button[name="clear_search"] {
+            background-color: #f44336;
+            margin-inline-start: 10px;
+        }
+
+        button[name="clear_search"]:hover {
+            background-color: #d32f2f;
+        }
+
+        table {
+            inline-size: 100%;
+            border-collapse: collapse;
+            margin-block-start: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: start;
+            border-block-end: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #00bfff;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        p {
+            margin-block-start: 20px;
+        }
+
+        /* New CSS for navigation bar */
+        .navbar {
+            display:flex;
+            overflow: hidden;
+            background-color: #00bfff;
+            padding: 10px;
+            justify-content:space-between;
+            position:relative;
+        }
+        .left{display:flex;
+            padding-inline-start:10px;
+        position:absolute;
+        inset-inline-start:0;}
+        .navbar img {
+            block-size: 40px;
+            margin-inline-end: 20px;
+        }
+
+        .navbar a {
+            float: inline-start;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .navbar a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        .navbar-right {
+            float: inline-end;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation bar with logo -->
+    <div class="navbar">
+        .<div class="left">
+            <img id="header-img" src="uniportal.jpg" alt="uniportal">
+        <a href="">Home</a>
+        <a href="#hello">Search</a>
+        <a href="{{ url_for('about') }}">About Us</a>
+        </div>
+        
+        <div class="navbar-right">
+            <a href="#hello">Sign In</a>
+            <a href="#">Login</a>
+        </div>
+    </div>
+
+    <!-- Your existing content -->
+    <form method="post">
+        <label for="search_query_course">Search Course:</label>
+        <input type="text" id="search_query_course" name="search_query_course">
+        <label for="search_query_state">Search State:</label>
+        <input type="text" id="search_query_state" name="search_query_state">
+        <button type="submit">Search</button>
+        <button type="submit" name="clear_search">Clear Search</button>
+    </form>
+    
+    <table>
+        <tr>
+            <th>College</th>
+            <th>Rating</th>
+            <th>Course</th>
+            <th>Duration</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Country</th>
+            <th>Average Fees</th>
+            <th>Acceptance Rate</th>
+            <!-- Add more table headers as needed -->
+        </tr>
+        {% for row in data %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+            <td>{{ row[5] }}</td>
+            <td>{{ row[6] }}</td>
+            <td>{{ row[7] }}</td>
+            <td>{{ row[8] }}</td>
+            <!-- Add more table cells as needed -->
+        </tr>
+        {% endfor %}
+    </table>
+
+    {% if search_query_course %}
+    <p>Search results for course "{{ search_query_course }}".</p>
+    {% endif %}
+    {% if search_query_state %}
+    <p>Search results for state "{{ search_query_state }}".</p>
+    {% endif %}
+</body>
+</html>
